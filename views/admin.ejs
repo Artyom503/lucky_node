@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/access.svg">
+    <title>Admin panel</title>
+</head>
+<body>
+    <h1>Managing coefficient</h1>
+    <form action="/admin" method="post">
+        <label for="data1"> Coefficient </label>
+        <input type="text" name="data1" value="<%= data1 %>" placeholder="Enter data 1">
+        <button type="submit" name="submit" value="data1">Save</button>
+    </form>
+    <hr>
+    <form action="/admin" method="post">
+        <label for="data2">    Version  </label>
+        <input type="text" name="data2" value="<%= data2 %>" placeholder="Enter data 2">
+        <button type="submit" name="submit" value="data2">Save</button>
+    </form>
+    <hr>
+    <form action="/logout">
+        <button type="submit">Logout</button>
+      </form>
+      
+</body>
+</html>

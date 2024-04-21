@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucky Jet Hack</title>
+    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="manifest" href="manifest.json">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="loader.css">
+</head>
+<body>
+    <main>
+		<div class="logo">
+			<img src="logo.png" alt="">
+		</div>
+		<span id="additional-text" class="subtitle"></span>
+		<div class="loader-wrap">
+			<div id="circle">
+				<span id="circle-value">
+									</span>
+				<div id="loading-spinner"></div>
+			</div>
+			<div id="content">
+				<p id="data1">
+									</p>
+			</div>
+
+			<div id="content">
+				<p id="data2">
+				</p>
+
+			</div>
+			<div class="loader active"></div>
+		</div>
+		<img class="plane-pic" src="" alt="">
+	</main>
+    <script>
+        function fetchData() {
+            fetch('/data')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('circle-value').innerText = data.data1;
+                    document.getElementById('additional-text').innerText = data.data2;
+                    if (data.data1 === "Connecting") {
+						document.querySelector('.loader').classList.remove('active') 
+					} else {
+						document.querySelector('.loader').classList.add('active') 
+					}
+                    // Условие для отображения анимации загрузки
+                    var loadingSpinner = document.getElementById('loading-spinner');
+		if (data.data1 === "Connecting") {
+						loadingSpinner.style.display = 'block';
+					} else {
+						loadingSpinner.style.display = 'none';
+					}
+                })
+                .catch(error => console.error('Error fetching data:', error));
+                
+        }
+
+        // Initial fetch
+        fetchData();
+
+        // Periodically fetch data every two seconds
+        setInterval(fetchData, 2000);
+       
+
+
+    </script>
+</body>
+</html>

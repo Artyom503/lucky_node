@@ -1,0 +1,45 @@
+.loader-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  align-self: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 10px solid;
+  border-color: rgba(255, 255, 255, 1) rgba(255, 255, 255, 0)
+    rgba(255, 255, 255, 0) rgba(255, 255, 255, 0);
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+ 
+}
+
+.loader.active {
+  animation: opacity 1s linear infinite;
+  border-color: rgba(255, 255, 255, 1) rgba(255, 255, 255, 1)
+  rgba(255, 255, 255, 1) rgba(255, 255, 255, 1);
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
